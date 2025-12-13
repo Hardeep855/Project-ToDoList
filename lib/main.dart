@@ -21,8 +21,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => TaskProvider(),
-      child: MaterialApp(home: HomePage()),
+      create: (context) => TaskProvider(),// state provider 
+      child: MaterialApp(home: HomePage()),//main screen  
     );
   }
 }

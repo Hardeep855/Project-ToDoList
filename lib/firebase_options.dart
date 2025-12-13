@@ -17,11 +17,11 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      return web;// web config
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        return android;// andriod config
       case TargetPlatform.iOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for ios - '
@@ -48,7 +48,7 @@ class DefaultFirebaseOptions {
         );
     }
   }
-
+// web firebase config 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBPV-HM3HNG9nGAkC9xG_ZTYhY6tAO8V9w',
     appId: '1:405203839792:web:3814372ccade27362576f5',
@@ -57,7 +57,7 @@ class DefaultFirebaseOptions {
     authDomain: 'todo-list-2-8ad50.firebaseapp.com',
     storageBucket: 'todo-list-2-8ad50.firebasestorage.app',
   );
-
+// andriod firebase config 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCuD1ntguedCAuHx4NespNSEcP_gAjhZjs',
     appId: '1:405203839792:android:5b21d108a21c93db2576f5',

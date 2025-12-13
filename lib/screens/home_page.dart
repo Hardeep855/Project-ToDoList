@@ -15,18 +15,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController nameController = TextEditingController();// task input 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue,// header color 
         title: Row(
           children: [
-            Expanded(child: Image.asset('assets/rdplogo.png', height: 80)),
+            Expanded(child: Image.asset('assets/rdplogo.png', height: 80)),// logo 
             Text(
-              'Daily Planner',
+              'Daily Planner',// app title 
               style: TextStyle(
                 fontFamily: 'Caveat',
                 fontSize: 32,
@@ -36,21 +36,21 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(),// side menu 
       body: Column(
         children: [
           TableCalendar(
-            calendarFormat: CalendarFormat.month,
-            focusedDay: DateTime.now(),
-            firstDay: DateTime(2025),
-            lastDay: DateTime(2027),
+            calendarFormat: CalendarFormat.month,// month view 
+            focusedDay: DateTime.now(),// current day 
+            firstDay: DateTime(2025),// calender start
+            lastDay: DateTime(2027),// calender end 
           ),
           Consumer<TaskProvider>(
             builder: (context, taskProvider, child) {
               return buildTaskList(
-                taskProvider.tasks,
-                taskProvider.removeTask,
-                taskProvider.updateTask,
+                taskProvider.tasks,// task list
+                taskProvider.removeTask,//delete action 
+                taskProvider.updateTask,// update action
               );
             },
           ),
@@ -58,8 +58,8 @@ class _HomePageState extends State<HomePage> {
             builder: (context, taskProvider, child) {
               return buildAddTaskSection(nameController, 
               () async {
-                await taskProvider.addTask(nameController.text);
-                nameController.clear();
+                await taskProvider.addTask(nameController.text);// add task 
+                nameController.clear();// clear input
               });
             },
           ),
